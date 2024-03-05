@@ -7,23 +7,19 @@ using namespace std;
 int main() {
     // variable declaration
     int playerPoints = 100;
-    int inputChoice;
-    int inputGuess;
-    int pointsAdded = 5;
-    int pointsSubtracted = 5;
+    int inputChoice, inputGuess;
+    int pointsAdded = 5, pointsSubtracted = 5;
     bool isDisplayingLeft = false, isDisplayingRight = false;
     int displayRight = -1, displayLeft = -1;
 
     // menu options
-    enum MenuOption {
-        DisplayLeft = 1,
-        DisplayRight,
-        Guess,
-        Change,
-        Exit
-    };
+    const int DisplayLeft = 1;
+    const int DisplayRight = 2;
+    const int Guess = 3;
+    const int Change = 4;
+    const int Exit = 5;
 
-    // code that only needs to run once:
+    // code that only needs to run once (header, name, name formatting, srand, initial boundaries, welcome message):
     // print out the header
     cout << "+-------------------------------------------------+" << endl;
     cout << "|         Computer Science and Engineering        |" << endl;
@@ -77,12 +73,12 @@ int main() {
     int right = rand() % 101 + 250;
 
     // ensure bounds are correct
-    while (left > right) {
+    while (left >= right) {
         left = rand() % 101 + 150;
         right = rand() % 101 + 250;
     }
 
-    // main game loop
+    // main game loop 
     while (playerPoints >= 0) {
         // display menu: 
         cout << "Menu: " << endl;
@@ -115,7 +111,7 @@ int main() {
                 pointsAdded = 1;
                 pointsSubtracted = 10;
 
-                // output the left number
+                // output
                 cout << "You will only get 1 point for guessing correctly and lose 10 points for guessing incorrectly, now." << endl;
                 cout << displayLeft << "          " << displayRight << endl;
                 break;
@@ -137,7 +133,7 @@ int main() {
                 pointsAdded = 1;
                 pointsSubtracted = 10;
 
-                // output the right number
+                // output
                 cout << "You will only get 1 point for guessing correctly and lose 10 points for guessing incorrectly, now." << endl;
                 cout << displayLeft << "          " << displayRight << endl;
                 break;
@@ -174,7 +170,7 @@ int main() {
                 right = rand() % 101 + 250;
 
                 // ensure bounds are correct
-                while (left > right) {
+                while (left >= right) {
                     left = rand() % 101 + 150;
                     right = rand() % 101 + 250;
                 }
@@ -186,6 +182,9 @@ int main() {
                 displayLeft = -1;
                 pointsAdded = 5;
                 pointsSubtracted = 5;
+
+                // output
+                cout << displayLeft << "          " << displayRight << endl;
                 break;
 
             case Exit:
