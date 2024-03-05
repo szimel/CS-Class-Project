@@ -7,10 +7,14 @@ using namespace std;
 int main() {
     // variable declaration
     int playerPoints = 100;
-    int inputChoice, inputGuess;
-    int pointsAdded = 5, pointsSubtracted = 5;
-    bool isDisplayingLeft = false, isDisplayingRight = false;
-    int displayRight = -1, displayLeft = -1;
+    int inputChoice;
+    int inputGuess;
+    int pointsAdded = 5;
+    int pointsSubtracted = 5;
+    bool isDisplayingLeft = false;
+    bool isDisplayingRight = false;
+    int displayRight = -1; 
+    int displayLeft = -1;
 
     // menu options
     const int DisplayLeft = 1;
